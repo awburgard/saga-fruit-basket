@@ -16,7 +16,6 @@ class App extends Component {
         <FruitSelector />
         {/* FruitList will connect to the store for the list of fruit */}
         <FruitList />
-        <Footer/>
         </div>
     );
   }
