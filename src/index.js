@@ -9,10 +9,37 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import axios from 'axios';
+import { takeEvery, put } from 'redux-saga/effects';
+
+function* getFruit() {
+    try {
+        const fruitResponse = yield axios.get('/fruit');
+        yield put({
+            type: 'SET_BASKET',
+            payload: fruitResponse.data
+        })
+    } catch (err) {
+        console.log('error HELP:', err);
+    }
+}
+
+function* postFruit(action) {
+    try {
+        yield axios.post('/fruit', action.payload);
+        yield put({
+            type: 'GET_FRUITS'
+        });
+    } catch (err) {
+        console.log('error HELP:', err)
+    }
+}
+
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    yield takeEvery('GET_FRUITS', getFruit);
+    yield takeEvery('ADD_FRUITS', postFruit)
 }
 
 // Create sagaMiddleware
@@ -42,6 +69,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();

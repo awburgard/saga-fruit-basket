@@ -12,19 +12,13 @@ class FruitItem extends Component {
         }).catch((error) => {
             console.log(error);
             alert('Unable to delete item');
-        });  
+        });
     }
 
     getFruit() {
-        axios({
-            method: 'GET',
-            url: '/fruit'
-        }).then((response) => {
-            const action = { type: 'SET_BASKET', payload: response.data };
-            this.props.dispatch(action);
-        }).catch((error) => {
-            alert('Unable to get basket from server');
-        });
+        this.props.dispatch({
+            type: 'GET_FRUITS'
+        })
     }
 
     render() {
