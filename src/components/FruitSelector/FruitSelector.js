@@ -21,10 +21,10 @@ class FruitSelector extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.addFruit('Apple')}>Add Apple</button>
-                <button onClick={this.addFruit('Orange')}>Add Orange</button>
-                <button onClick={this.addFruit('Watermelon')}>Add Watermelon</button>
-                <button onClick={this.addFruit('Grapefruit')}>Add Grapefruit</button>
+                <button className="button is-primary" onClick={this.addFruit('Apple')}>Add Apple</button>
+                <button className="button is-warning" onClick={this.addFruit('Orange')}>Add Orange</button>
+                <button className="button is-success" onClick={this.addFruit('Watermelon')}>Add Watermelon</button>
+                <button className="button is-link" onClick={this.addFruit('Grapefruit')}>Add Grapefruit</button>
             </div>
         )
     }

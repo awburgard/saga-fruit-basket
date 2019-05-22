@@ -17,10 +17,19 @@ class FruitItem extends Component {
 
     render() {
         return (
-            <li>
-                <span>{this.props.basketItem.fruit}</span>
-                <button onClick={this.removeItem}>Remove</button>
-            </li>
+            <div className="card">
+                <header class="card-header" />
+                <p className="card-header-title">
+                    {this.props.basketItem.fruit}
+                </p>
+                <div className="card-content">
+                    <div className="content">
+                        <button className="button is-danger" onClick={this.removeItem}>Remove</button>
+                    </div>
+
+                </div>
+
+            </div>
         )
     }
 }

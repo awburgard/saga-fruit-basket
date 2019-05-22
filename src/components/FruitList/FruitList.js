@@ -15,13 +15,13 @@ class FruitList extends Component {
 
     render() {
         return (
-            <ul>
+            <div>
                 {this.props.reduxState.basketReducer.map((basketItem) => {
                     return (
                         <FruitItem key={basketItem.id} basketItem={basketItem} />
                     );
                 })}
-            </ul>
+            </div>
         )
     }
 }
