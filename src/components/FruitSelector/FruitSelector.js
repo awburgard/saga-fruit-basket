@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 class FruitSelector extends Component {
 
@@ -24,7 +23,7 @@ class FruitSelector extends Component {
             <div>
                 <button onClick={this.addFruit('Apple')}>Add Apple</button>
                 <button onClick={this.addFruit('Orange')}>Add Orange</button>
-                <button onClick={this.addFruit('Watermelon')}>Add Watermellon</button>
+                <button onClick={this.addFruit('Watermelon')}>Add Watermelon</button>
                 <button onClick={this.addFruit('Grapefruit')}>Add Grapefruit</button>
             </div>
         )
